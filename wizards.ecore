@@ -1,0 +1,148 @@
+import ecore : 'http://www.eclipse.org/emf/2002/Ecore';
+
+package wizards : wizards = 'wizards'
+{
+	class Wizard
+	{
+		attribute title : String[1];
+		
+		property initial_page : Page[1];
+		property pages : Page[*] { composes };
+		
+		invariant initialPageNoReturnButton: 
+			self.initial_page.returnButtons->size() = 0;
+		invariant reacheablePages: 
+			self.pages->forAll(p | self.initial_page.reacheable(p));
+	}
+
+	class Page 
+	{	
+		attribute name : String[1];  -- Debug purposes -> identify page on tree-like editor
+		
+		property textFields : TextField[*] {composes};
+		property checkBox : CheckBox[?] {composes};
+		property returnButtons : ReturnButton[*] {composes};
+		property navigatorButtons : NavigatorButton[*] {composes};
+		property popUpButtons : PopUpButton[*] {composes};
+		property closeButtons : CloseButton[*] {composes};
+		
+		operation buttons() : Button[*] { unique !ordered derived }
+		{
+			body: 
+				self.returnButtons->collect(oclAsType(Button))->union(
+					self.navigatorButtons->collect(oclAsType(Button))
+				)->union(
+					self.popUpButtons->collect(oclAsType(Button))
+				)->union(
+					self.closeButtons->collect(oclAsType(Button))
+				)->asSet();
+		}
+		
+		operation reacheable(page : Page[1]) : Boolean[1]
+		{
+			body: 
+				if self = page then
+					true
+				else
+						if self.navigatorButtons->isEmpty() then
+							false
+						else
+							self.navigatorButtons->exists(nb | nb.reacheable(page))
+						endif
+				endif;
+		}
+		
+		operation action();
+		operation show();
+		operation close();
+		
+		invariant nonDuplicateButtonsLabel: 
+			self.buttons()->forAll(b1, b2 |
+				b1 <> b2 implies b1.label <> b2.label
+			);
+
+		invariant maxOneReturnButton: -- max one return button per page
+			self.returnButtons->size() <= 1;
+
+		invariant notOnlyPopUpButtons:  -- no page can contain only buttons that show messages
+			self.buttons()->collect(
+				oclIsTypeOf(ReturnButton) or oclIsTypeOf(NavigatorButton) or oclIsTypeOf(CloseButton)
+			)->size() > 0;
+
+		invariant requiredButtons:  -- if no navigation buttons or return buttons then must contain at least one close button
+			(self.navigatorButtons->size() = 0 or self.returnButtons->size() = 0) implies self.closeButtons->size() > 0;
+
+	}
+	
+	abstract class Component
+	{
+		attribute label : String[1];
+	}
+	
+	class TextField extends Component
+	{
+		attribute min_length : ecore::EInt[?];
+		attribute max_length : ecore::EInt[?];
+
+		invariant validLabelLengthBound:
+			(not min_length->oclIsInvalid() and not max_length->oclIsInvalid()) implies min_length <= max_length;
+	}
+	class CheckBox extends Component
+	{
+		attribute selected : Boolean[1];
+	}
+	abstract class Button extends Component
+	{	
+		property currentPage : Page[1];
+		
+		operation action();
+		
+		invariant maxLabelLength: 
+			label->size() <= 10;
+	}
+	class ReturnButton extends Button
+	{
+		property srcPage : Page[1];
+		
+		operation action();
+	}
+	class NavigatorButton extends Button
+	{
+		property dstPage : Page[1];
+		property alterDstPage : Page[?];
+		
+		operation redirectPage() : Page[1]
+		{
+			body: 
+				if (
+					(not self.currentPage.checkBox->oclIsUndefined())
+					and self.currentPage.checkBox.selected
+				) then
+					self.alterDstPage
+				else
+					self.dstPage
+				endif;
+		}
+		operation reacheable(page : Page[1]) : Boolean[1]
+		{
+			body: 
+				self.dstPage.reacheable(page) or self.alterDstPage.reacheable(page);
+		}
+		operation action();
+		
+		invariant noSelfLoop: 
+			self.redirectPage() <> self.currentPage;
+			
+		invariant checkBoxThenAlterPage:  -- consistent
+			(not self.currentPage.checkBox->oclIsUndefined()) implies (not self.alterDstPage->oclIsUndefined());
+	}
+	class PopUpButton extends Button
+	{
+		operation action();
+		attribute popUp : String[1];
+	}
+	class CloseButton extends Button
+	{
+		operation action();
+	}
+}
