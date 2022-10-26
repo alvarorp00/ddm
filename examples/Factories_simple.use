@@ -1,0 +1,69 @@
+
+model Factory
+
+-- classes
+
+class Factory
+end
+
+abstract class Machine
+end
+
+class Generator < Machine
+end
+
+class Packager < Machine
+end
+
+class Assembler < Machine
+end
+
+class Conveyor
+attributes
+  capacity : Integer
+end
+
+class Operator
+end
+
+class Part
+attributes
+   serialNumber : Integer
+end
+-- associations
+
+composition operators between
+  Factory[1] role factory
+  Operator[1..*] role operators
+end
+
+composition machines between
+  Factory[1] role factory
+  Machine[0..*] role machines
+end
+
+composition conveyors between
+  Factory[1] role factory
+  Conveyor[*] role conveyors
+end
+
+composition parts between
+  Conveyor[1] role conveyor
+  Part[*] role parts
+end
+
+association inputs between
+  Conveyor[0..*] role tarConveyor 
+  Machine[1..*] role inputMachine
+end
+
+association outputs between
+  Conveyor[0..*] role srcConveyor 
+  Machine[1..*] role  outMachine
+end
+
+association operates between
+   Operator[0..1] role operator
+   Machine[0..1] role machine
+end
+

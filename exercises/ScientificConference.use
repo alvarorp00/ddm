@@ -1,0 +1,86 @@
+model ScientificConference
+
+-- classes
+
+class Conference
+operations
+    submitPaper(paper : Paper)
+    setPaperState(paper : Paper)
+end
+
+abstract class User
+attributes
+    name : String
+    affiliation : String
+    email : String
+end
+
+class Author < User
+operations
+    submitPaper(paper : Paper, conference : Conference)
+        pre selfInAuthors: paper.authors->exists(a | a=self)
+    onPaperStateChange(paper : Paper)  -- For notifications
+end
+
+class Chair < Author
+operations
+    setPaperState(paper : Paper)
+    submitPaper(paper : Paper, conference : Conference)  -- Overwrite
+        pre notSelfConference: self.conference <> conference
+end
+
+class Reviewer < Author
+operations
+    reviewPaper(paper : Paper)
+        pre notSelfPaper: self.papers->forAll(p | p <> paper)
+constraints
+    inv notSelfPapersReviewed : self.papers->forAll(p | self.reviewed->forAll(p_ | p_ <> p))
+end
+
+class Student < Author
+end
+
+class Paper
+attributes
+    title : String
+    abstr : String
+    body : String
+    state : PaperState
+operations
+    updateState(state : PaperState)
+end
+
+enum PaperState {NONE, SUBMITTED, ACCEPTED, REJECTED}  -- ACC / REJ sink states
+
+class Review
+attributes
+    score : Integer
+    comments : String
+constraints
+    inv scoreRange : self.score >= 0 and self.score <= 5
+end
+
+association chairs between
+    Conference[1] role conference
+    Chair[1..2] role chairs
+end
+
+association publications between
+    Author[1..*] role authors
+    Paper[*] role papers
+end
+
+association reviewers between
+    Review[1] role review_done
+    Reviewer[3] role reviewers
+end
+
+association reviews between
+    Paper[1] role paper
+    Review[1] role review
+end
+
+composition papers_reviewed between
+    Reviewer[1] role reviewer
+    Paper[*] role reviewed
+end

@@ -1,0 +1,51 @@
+
+model Mortages
+
+-- classes
+
+class House
+attributes
+  value : Integer
+constraints
+  inv positiveValue : self.value > 0
+end
+
+class Mortgage
+attributes
+  total : Integer
+  monthly: Integer
+  startDate : Integer
+  endDate : Integer
+constraints
+  inv ownerIsContracting: guarantee.owner = contracting
+  inv coherentDates: startDate > endDate
+end
+
+class Person
+attributes
+  sSNumber : Integer
+  salary : Integer
+operations
+  signUpMortgage(sum : Integer, guarantee: House)
+     pre enoughSalary: self.mortgages.monthly->sum()+sum <= self.salary*0.7
+     pre enoughValue: guarantee.value >= guarantee.mortgages.total->sum() 
+constraints
+  inv uniqueId: Person.allInstances()->isUnique(sSNumber)
+end
+
+-- associations
+
+association HouseMmortage between
+  House[1] role guarantee
+  Mortgage[*] role mortgages
+end
+
+association HouseOwners between
+  House[*] role houses
+  Person[1] role owner
+end
+
+association PersonMortgaes between
+  Mortgage[*] role mortgages
+  Person[1] role contracting
+end

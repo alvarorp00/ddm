@@ -1,0 +1,6 @@
+Stock:
+	100 book (20.0 each)
+	150 cd   (10.0 each)
+Orders:
+	{ 3 book, 2 cd } to Mary paying John
+	{ 2 cd } to Mary paying Mary	
