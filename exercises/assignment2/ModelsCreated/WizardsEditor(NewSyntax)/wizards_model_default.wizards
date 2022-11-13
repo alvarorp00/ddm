@@ -1,0 +1,20 @@
+// Default model shown in slides
+NewProject
+page1
+Pages: page1{
+	{TextField Name}
+	{NavigatorButton Next page1 page2}
+	{CloseButton Cancel page1}
+}, page2 {
+	CheckBox true 'Create source folder'
+	{ReturnButton Back page2 page1}
+	{NavigatorButton Next page2 page31 page32}
+	{CloseButton Cancel page2}
+}, page31 {
+	{TextField Folder}
+	{ReturnButton Back page31 page2}
+	{CloseButton Finish page31}
+}, page32 {
+	{ReturnButton Back page32 page2} 
+	{CloseButton Finish page32}
+}

@@ -1,0 +1,8 @@
+[module generateCloseButton('/ejemplo/metamodel/wizards.ecore')]
+
+[template public generateCloseButton(closeButton : CloseButton)]
+
+closeButton = new CloseButton("[ closeButton.label /]");
+buttons.add(closeButton);
+
+[/template]

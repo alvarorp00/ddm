@@ -1,0 +1,4 @@
+This project folder contains tree-like editor model object build directly from editor:
+	1. Generate .genmodel from .ecore file (wizards.ecore)
+	2. Generate edit & editor from .genmodel generated file
+	3. Editor --> run as eclipse application --> open with wizards model editor

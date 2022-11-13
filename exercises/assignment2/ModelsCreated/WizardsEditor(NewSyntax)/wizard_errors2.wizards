@@ -1,0 +1,20 @@
+// Default model shown in slides
+NewProject
+page1
+Pages: page1{
+	{TextField Name}
+	{NavigatorButton Next page1 page2}
+	{CloseButton Cancel page2} // --> Wrong context (page2 is not the container of Cancel button but page1, quickFix should change it to page1.
+}, page2 {
+	CheckBox true 'Create source folder'
+	{ReturnButton Back page2 page1}
+	{NavigatorButton Next page2 page31 } // --> [CTRL + SPACE | quickFixes] --> put a scoped page or let the autoFix complete it with same as default dest page (page31).
+	{CloseButton Cancel page2}
+}, page31 {
+	{TextField Folder}
+	{ReturnButton Back page31 page2}
+	{CloseButton Finish page31}
+}, page32 {
+	{ReturnButton Back page32 } // --> CTRL + SPACE here! --> no src page --> no page to return to (check scoped pages and how this scoped set doesn't include currentPage of button).
+	{CloseButton Finish page32}
+}

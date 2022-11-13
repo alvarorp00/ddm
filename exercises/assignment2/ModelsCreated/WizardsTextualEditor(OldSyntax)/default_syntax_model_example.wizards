@@ -1,0 +1,89 @@
+// Replicate model shown in exercise
+
+Wizard {
+	title 'New Project'
+	initial_page page1
+	pages {
+		Page page1 {
+			text_fields {
+				TextField {
+					label 'Name'
+				}
+			}
+			navigatorButtons {
+				NavigatorButton {
+					label "Next"
+					currentPage page1
+					dstPage page2
+				}
+			}
+			closeButtons {
+				CloseButton {
+					label "Cancel"
+					currentPage page1
+				}
+			}
+		},
+		Page page2 {
+			checkbox selected CheckBox{
+				label "create source folder"
+			}
+			returnButtons {
+				ReturnButton {
+					label "Back"
+					currentPage page2
+					srcPage page1
+				}
+			}
+			navigatorButtons {
+				NavigatorButton {
+					label "Next"
+					currentPage page2
+					dstPage page31
+					alterDstPage page32
+				}
+			}
+			closeButtons {
+				CloseButton {
+					label "Cancel"
+					currentPage page2
+				}
+			}
+		},
+		Page page31 {
+			text_fields {
+				TextField {
+					label "Folder"
+				}
+			}
+			returnButtons {
+				ReturnButton {
+					label "Back"
+					currentPage page31
+					srcPage page2
+				}
+			}
+			closeButtons {
+				CloseButton {
+					label "Finish"
+					currentPage page31
+				}
+			}
+		},
+		Page page32 {
+			returnButtons {
+				ReturnButton {
+					label "Back"
+					currentPage page32
+					srcPage page2
+				}
+			}
+			closeButtons {
+				CloseButton {
+					label "Finish"
+					currentPage page32
+				}
+			}
+		}
+	}
+}

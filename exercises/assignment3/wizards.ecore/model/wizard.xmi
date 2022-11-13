@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizards:Wizard
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:wizards="/ejemplo/metamodel/wizards.ecore"
+    xsi:schemaLocation="/ejemplo/metamodel/wizards.ecore wizards.ecore"
+    title="New Project"
+    initial_page="//@pages.0">
+  <pages name="Page 1">
+    <textFields
+        label="Name"/>
+    <navigatorButtons
+        label="Next"
+        currentPage="//@pages.0"
+        dstPage="//@pages.1"/>
+    <closeButtons
+        label="Cancel"
+        currentPage="//@pages.0"/>
+  </pages>
+  <pages name="Page 2">
+    <checkBox
+        label="create src folder"
+        selected="true"/>
+    <returnButtons
+        label="Back"
+        currentPage="//@pages.1"
+        srcPage="//@pages.0"/>
+    <navigatorButtons
+        label="Next"
+        currentPage="//@pages.1"
+        dstPage="//@pages.3"
+        alterDstPage="//@pages.2"/>
+    <closeButtons
+        label="Cancel"
+        currentPage="//@pages.1"/>
+  </pages>
+  <pages name="Page 3.1">
+    <textFields
+        label="Folder"/>
+    <returnButtons
+        label="Back"
+        currentPage="//@pages.2"
+        srcPage="//@pages.1"/>
+    <closeButtons
+        label="Finish"
+        currentPage="//@pages.2"/>
+  </pages>
+  <pages name="Page 3.2">
+    <returnButtons
+        label="Back"
+        currentPage="//@pages.3"
+        srcPage="//@pages.1"/>
+    <popUpButtons
+        label="Info"
+        currentPage="//@pages.3"
+        popUp="Some info text"/>
+    <closeButtons
+        label="Finish"
+        currentPage="//@pages.3"/>
+  </pages>
+</wizards:Wizard>

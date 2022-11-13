@@ -1,0 +1,8 @@
+[module generateTextField('/ejemplo/metamodel/wizards.ecore')]
+
+[template public generateTextField(textField : TextField)]
+
+textField = new TextField("[ textField.label /]", "[ textField.input /]");
+page.addTextField(textField);
+
+[/template]

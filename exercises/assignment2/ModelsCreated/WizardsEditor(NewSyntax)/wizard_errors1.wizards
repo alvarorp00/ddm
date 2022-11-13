@@ -1,0 +1,23 @@
+// Model with errors --> check quickFixes available
+NewProject
+page1
+Pages: page1{
+	{TextField Name}
+	{NavigatorButton Next page1 page2}
+	{CloseButton Cancel page1}
+}, page2 {
+	CheckBox true 'Create source folder'
+	{ReturnButton 'Long Button Labels' page2 page1}  // Button label exceeds maximum length (10)
+	{NavigatorButton Next page2 page31 page32}
+	{CloseButton CancelButtonLengthLabels page2} // Button label exceeds maximum length (10)
+}, page31 {
+	{TextField Folder}
+	{ReturnButton Back page31 page2}
+	{CloseButton Finish page31}
+}, page32 {
+	CheckBox false ''  // label is empty or blank
+	{TextField '', TextField '', TextField ''}  // label is empty or blank
+	{ReturnButton Back page32 page2}
+	{NavigatorButton Next page32 page32}  // Scope error --> see quickFixes available
+	{CloseButton Finish page32}
+}

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="wizards" nsURI="wizards" nsPrefix="wizards">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Wizard">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="initialPageNoReturnButton reachablePages noDuplicatePages"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="initialPageNoReturnButton" value="&#xA;&#x9;&#x9;&#x9;self.initial_page.returnButtons->size() = 0"/>
+      <details key="reachablePages" value="&#xA;&#x9;&#x9;&#x9;self.pages->forAll(p | self.initial_page.reachable(p))"/>
+      <details key="noDuplicatePages" value="&#xA;&#x9;&#x9;&#x9;self.pages->forAll(p1, p2 | p1 &lt;> p2 implies p1.name &lt;> p2.name)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initial_page" lowerBound="1"
+        eType="#//Page"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pages" ordered="false"
+        upperBound="-1" eType="#//Page" containment="true">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Page">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nonDuplicateButtonsLabel maxOneReturnButton notOnlyPopUpButtons requiredButtons"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nonDuplicateButtonsLabel" value="&#xA;&#x9;&#x9;&#x9;self.buttons()->forAll(b1, b2 |&#xA;&#x9;&#x9;&#x9;&#x9;b1 &lt;> b2 implies b1.label &lt;> b2.label&#xA;&#x9;&#x9;&#x9;)"/>
+      <details key="maxOneReturnButton" value="-- max one return button per page&#xA;&#x9;&#x9;&#x9;self.returnButtons->size() &lt;= 1"/>
+      <details key="notOnlyPopUpButtons" value=" -- no page can contain only buttons that show messages&#xA;&#x9;&#x9;&#x9;(self.returnButtons->size() + self.navigatorButtons->size() + self.closeButtons->size()) > 0"/>
+      <details key="requiredButtons" value=" -- if no navigation buttons or return buttons then must contain at least one close button&#xA;&#x9;&#x9;&#x9;(self.navigatorButtons->size() = 0 or self.returnButtons->size() = 0) implies self.closeButtons->size() > 0"/>
+    </eAnnotations>
+    <eOperations name="buttons" ordered="false" upperBound="-1" eType="#//Button">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#x9;self.returnButtons->collect(oclAsType(Button))->union(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.navigatorButtons->collect(oclAsType(Button))&#xA;&#x9;&#x9;&#x9;&#x9;)->union(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.popUpButtons->collect(oclAsType(Button))&#xA;&#x9;&#x9;&#x9;&#x9;)->union(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.closeButtons->collect(oclAsType(Button))&#xA;&#x9;&#x9;&#x9;&#x9;)->asSet()"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="reachable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#x9;if self = page then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;true&#xA;&#x9;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if self.navigatorButtons->isEmpty() then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;false&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.navigatorButtons->exists(nb | nb.reachable(page))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;endif"/>
+      </eAnnotations>
+      <eParameters name="page" lowerBound="1" eType="#//Page"/>
+    </eOperations>
+    <eOperations name="action"/>
+    <eOperations name="show"/>
+    <eOperations name="close"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="textFields" ordered="false"
+        upperBound="-1" eType="#//TextField" containment="true">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="checkBox" eType="#//CheckBox"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnButtons" ordered="false"
+        upperBound="-1" eType="#//ReturnButton" containment="true">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="navigatorButtons" ordered="false"
+        upperBound="-1" eType="#//NavigatorButton" containment="true">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="popUpButtons" ordered="false"
+        upperBound="-1" eType="#//PopUpButton" containment="true">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="closeButtons" ordered="false"
+        upperBound="-1" eType="#//CloseButton" containment="true">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextField" eSuperTypes="#//Component">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="minInputLength maxInputLength validBounds"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="minInputLength" value="&#xA;&#x9;&#x9;&#x9;( not self.min_length->oclIsUndefined() ) implies self.input->size() >= self.min_length"/>
+      <details key="maxInputLength" value="&#xA;&#x9;&#x9;&#x9;( not self.max_length->oclIsUndefined() ) implies self.input->size() &lt;= self.max_length"/>
+      <details key="validBounds" value="&#xA;&#x9;&#x9;&#x9;((not self.min_length->oclIsUndefined()) and (not self.max_length->oclIsUndefined()))&#xA;&#x9;&#x9;&#x9;&#x9;implies (self.min_length &lt;= self.max_length)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min_length" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_length" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selected" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" abstract="true" eSuperTypes="#//Component">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="maxLabelLength"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="maxLabelLength" value="&#xA;&#x9;&#x9;&#x9;self.label.size() &lt;= 10"/>
+    </eAnnotations>
+    <eOperations name="action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentPage" lowerBound="1"
+        eType="#//Page"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnButton" eSuperTypes="#//Button">
+    <eOperations name="action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="srcPage" lowerBound="1"
+        eType="#//Page"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigatorButton" eSuperTypes="#//Button">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="noSelfLoop"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="noSelfLoop" value="&#xA;&#x9;&#x9;&#x9;self.dstPage &lt;> self.currentPage and&#xA;&#x9;&#x9;&#x9;&#x9;(not self.alterDstPage->oclIsUndefined() implies self.alterDstPage &lt;> self.currentPage)"/>
+    </eAnnotations>
+    <eOperations name="targetPage" lowerBound="1" eType="#//Page">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#x9;if (not self.currentPage.checkBox->oclIsUndefined() and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.currentPage.checkBox.selected&#xA;&#x9;&#x9;&#x9;&#x9;) then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.alterDstPage&#xA;&#x9;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.dstPage&#xA;&#x9;&#x9;&#x9;&#x9;endif"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="reachable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="&#xA;&#x9;&#x9;&#x9;&#x9;if (not self.alterDstPage->oclIsUndefined() and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;not self.currentPage.checkBox->oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;) then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.dstPage.reachable(page) or self.alterDstPage.reachable(page)&#xA;&#x9;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.dstPage.reachable(page)&#xA;&#x9;&#x9;&#x9;&#x9;endif"/>
+      </eAnnotations>
+      <eParameters name="page" lowerBound="1" eType="#//Page"/>
+    </eOperations>
+    <eOperations name="action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dstPage" lowerBound="1"
+        eType="#//Page"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alterDstPage" eType="#//Page"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PopUpButton" eSuperTypes="#//Button">
+    <eOperations name="action"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="popUp" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloseButton" eSuperTypes="#//Button">
+    <eOperations name="action"/>
+  </eClassifiers>
+</ecore:EPackage>

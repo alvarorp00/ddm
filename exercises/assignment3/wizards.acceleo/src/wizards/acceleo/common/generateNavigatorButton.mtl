@@ -1,0 +1,11 @@
+[module generateNavigatorButton('/ejemplo/metamodel/wizards.ecore')]
+
+[comment][template public generateNavigatorButton(navigatorButton : NavigatorButton, checkBoxSelected : Boolean)][/comment]
+[template public generateNavigatorButton(navigatorButton : NavigatorButton)]
+
+navigatorButton = new NavigatorButton("[ navigatorButton.label /]");
+navigatorButton.addActionListener(new AlternateChangePageListener(wizard,
+	"[ navigatorButton.dstPage.name /]", "[ navigatorButton.alterDstPage.name /]", page, pred));  // by page we access to the current button page!
+buttons.add(navigatorButton);
+
+[/template]

@@ -1,0 +1,3 @@
+Part1 --> ecore metamodel & edit, editor generated from the .genmodel file
+Part2 --> xtext project containing new syntax, validators, quickFixes and scope provider
+ModelsCreated --> model for wizards.ecore.editor (EMF Model Creation Wizards) and model for xtext textual editor

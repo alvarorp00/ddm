@@ -1,0 +1,94 @@
+[module generate('/ejemplo/metamodel/wizards.ecore')]
+
+[import wizards::acceleo::common::generatePage /]
+
+[template public generateWizard(wizard : Wizard)]
+[comment @main /]
+
+[file ('wizard/Wizard.java', false, 'UTF-8')]
+
+/* [protected('initialization')]
+*/
+
+package wizard;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
+
+import javax.swing.*;
+
+import java.util.function.Predicate;
+
+import components.*;
+import listeners.*;
+
+public class Wizard extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+
+	public Wizard() {
+
+		super("[wizard.title /]");
+
+/* [/ protected] */
+	
+/* [protected ('variables')]
+*/
+		JPanel wizard;
+		
+		Page page;
+		
+		CheckBox checkBox;
+		TextField textField;
+		
+		ReturnButton returnButton;
+		NavigatorButton navigatorButton;
+		CloseButton closeButton;
+		PopUpButton popUpButton;
+
+		JPanel buttons;
+
+		Predicate<Page> pred = (p) -> {
+			CheckBox cb = p.getCheckBox();
+			if (cb == null) return true;
+			return !cb.isSelected();  // we want that if it's selected then move to alter destiny
+		};
+	
+/* [/ protected] */
+	
+		wizard = new JPanel(new CardLayout());
+
+		[ wizard.initial_page.generatePage() /]
+
+		wizard.add(page, page.getName());
+
+	[for(page : Page | wizard.pages)]
+		[ page.generatePage() /]
+		wizard.add(page, page.getName());
+	[/for]
+
+		getContentPane().add(wizard);
+	}
+
+/* [protected('showWizard')]
+*/
+
+	public void showWizard() {
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.pack();
+		this.setVisible(true);
+	}
+
+/* [/protected] */
+
+/* [protected('finish')]
+*/
+
+}
+
+/* [/ protected] */
+
+[/file]
+
+[/template]

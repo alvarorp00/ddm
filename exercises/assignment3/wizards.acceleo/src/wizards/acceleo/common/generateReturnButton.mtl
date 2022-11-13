@@ -1,0 +1,9 @@
+[module generateReturnButton('/ejemplo/metamodel/wizards.ecore')]
+
+[template public generateReturnButton(returnButton : ReturnButton)]
+
+returnButton = new ReturnButton("[returnButton.label /]");
+returnButton.addActionListener(new ChangePageListener(wizard, "[ returnButton.srcPage.name /]"));
+buttons.add(returnButton);
+
+[/template]

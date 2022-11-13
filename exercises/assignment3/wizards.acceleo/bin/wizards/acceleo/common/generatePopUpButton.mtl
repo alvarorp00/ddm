@@ -1,0 +1,8 @@
+[module generatePopUpButton('/ejemplo/metamodel/wizards.ecore')]
+
+[template public generatePopUpButton(popUpButton : PopUpButton)]
+
+popUpButton = new PopUpButton("[ popUpButton.label /]", "[ popUpButton.popUp /]");
+buttons.add(popUpButton);
+
+[/template]

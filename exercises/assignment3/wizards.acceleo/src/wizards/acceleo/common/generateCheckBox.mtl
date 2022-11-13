@@ -1,0 +1,10 @@
+[module generateCheckBox('/ejemplo/metamodel/wizards.ecore')]
+
+[template public generateCheckBox(checkBox : CheckBox)]
+
+[if checkBox <> null]
+checkBox = new CheckBox([ checkBox.selected /], "[ checkBox.label /]");
+page.addCheckBox(checkBox);
+[/if]
+
+[/template]

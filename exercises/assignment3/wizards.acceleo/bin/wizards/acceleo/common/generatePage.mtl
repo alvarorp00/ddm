@@ -1,0 +1,44 @@
+[module generatePage('/ejemplo/metamodel/wizards.ecore')]
+
+[import wizards::acceleo::common::generateCheckBox /]
+[import wizards::acceleo::common::generateCloseButton /]
+[import wizards::acceleo::common::generateNavigatorButton /]
+[import wizards::acceleo::common::generatePopUpButton /]
+[import wizards::acceleo::common::generateReturnButton /]
+[import wizards::acceleo::common::generateTextField /]
+
+
+[template public generatePage(page : Page)]
+
+page = new Page("[ page.name /]");
+
+[ page.checkBox.generateCheckBox() /]
+
+[for (textField : TextField | page.textFields)]
+[ textField.generateTextField() /]
+[/for]
+
+buttons = new JPanel();
+
+[for (returnButton : ReturnButton | page.returnButtons)]
+[ returnButton.generateReturnButton() /]
+[/for]
+
+[comment][let checkBoxSelected : Boolean = page.checkBox <> null and page.checkBox.selected ][/comment]
+[for(navigatorButton : NavigatorButton | page.navigatorButtons)]
+[comment][ navigatorButton.generateNavigatorButton(checkBoxSelected) /][/comment]
+[navigatorButton.generateNavigatorButton() /]
+[/for]
+[comment][/let][/comment]
+
+[for (closeButton : CloseButton | page.closeButtons)]
+[ closeButton.generateCloseButton() /]
+[/for]
+
+[for (popUpButton : PopUpButton | page.popUpButtons)]
+[ popUpButton.generatePopUpButton() /]
+[/for]
+
+page.addButtonGroup(buttons);
+
+[/template]
