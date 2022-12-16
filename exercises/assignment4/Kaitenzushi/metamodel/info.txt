@@ -1,0 +1,9 @@
+Brief comments about the metamodel:
+
+- The idea of using enum instead of an abstract class
+is that it's easier to work with it as we have two attributes: price & type,
+and with the type we can distinguish between both types and do not need
+to model two rules for eating reds or eating blues and long as we keep being consistent with it.
+
+- Numeric parameters used as counters are not needed except the one for the lap count, they're
+for debugging purposes.

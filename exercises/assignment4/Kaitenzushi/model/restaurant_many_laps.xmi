@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<kaitenzushi:Restaurant
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:kaitenzushi="http://kaitenzushi.v1"
+    kitchen_box="//@conveyor/@boxes.0"
+    current_clients="4">
+  <conveyor>
+    <boxes next="//@conveyor/@boxes.1"
+        prev="//@conveyor/@boxes.4"
+        free="false">
+      <food
+          location="//@conveyor/@boxes.0"
+          laps="3"
+          price="5"/>
+      <food
+          location="//@conveyor/@boxes.0"
+          laps="4"
+          price="5"/>
+    </boxes>
+    <boxes id="1"
+        next="//@conveyor/@boxes.2"
+        prev="//@conveyor/@boxes.0"
+        free="false"/>
+    <boxes id="2"
+        next="//@conveyor/@boxes.3"
+        prev="//@conveyor/@boxes.1"
+        free="false"/>
+    <boxes id="3"
+        next="//@conveyor/@boxes.4"
+        prev="//@conveyor/@boxes.2"
+        free="false"/>
+    <boxes id="4"
+        next="//@conveyor/@boxes.0"
+        prev="//@conveyor/@boxes.3"
+        free="false"/>
+  </conveyor>
+  <clients location="//@conveyor/@boxes.4"
+      id="4"/>
+  <clients location="//@conveyor/@boxes.3"
+      id="3"/>
+  <clients location="//@conveyor/@boxes.2"
+      id="2"/>
+  <clients location="//@conveyor/@boxes.1"
+      id="1"
+      food_count="1"
+      spent="10">
+    <eaten type="BLUE"
+        price="10"/>
+  </clients>
+</kaitenzushi:Restaurant>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<kaitenzushi:Restaurant xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:kaitenzushi="http://kaitenzushi.v1" xmi:id="_oZyjcHFrEe2Cc5-1vX4_jQ" kitchen_box="_p5pMoHFrEe2Cc5-1vX4_jQ">
+  <conveyor xmi:id="_pU9yQHFrEe2Cc5-1vX4_jQ">
+    <boxes xmi:id="_p5pMoHFrEe2Cc5-1vX4_jQ" next="_qnP5gHFrEe2Cc5-1vX4_jQ" prev="_5H9B4HHDEe2Cc5-1vX4_jQ" free="false"/>
+    <boxes xmi:id="_qnP5gHFrEe2Cc5-1vX4_jQ" id="1" next="_q5DbMHFrEe2Cc5-1vX4_jQ" prev="_p5pMoHFrEe2Cc5-1vX4_jQ"/>
+    <boxes xmi:id="_q5DbMHFrEe2Cc5-1vX4_jQ" id="2" next="_5H9B4HHDEe2Cc5-1vX4_jQ" prev="_qnP5gHFrEe2Cc5-1vX4_jQ"/>
+    <boxes xmi:id="_5H9B4HHDEe2Cc5-1vX4_jQ" id="3" next="_p5pMoHFrEe2Cc5-1vX4_jQ" prev="_q5DbMHFrEe2Cc5-1vX4_jQ"/>
+  </conveyor>
+</kaitenzushi:Restaurant>

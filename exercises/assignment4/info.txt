@@ -1,0 +1,1 @@
+Note: sometimes the diagram will yell something like URI http://kaitenzushi.v1 not found etc. Can be solved by right-clicking on the ecore metamodel (Kaitenzushi/metamodel/kaitenzushi.ecore) and 'Register EPackages' option. The open again the diagram and should be working.

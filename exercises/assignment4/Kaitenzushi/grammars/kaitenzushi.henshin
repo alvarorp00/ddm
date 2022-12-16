@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_nplyoHDIEe2LYp7deoHc9Q" name="" description="">
+  <imports href="http://kaitenzushi.v1#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BkQ6AHDLEe2LYp7deoHc9Q" name="AddClient">
+    <parameters xmi:id="__yWyQHGgEe2Cc5-1vX4_jQ" name="cc" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_Jj4RsHHYEe2Cc5-1vX4_jQ" name="b_id" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_BklDEHDLEe2LYp7deoHc9Q" name="Lhs">
+      <nodes xmi:id="_GlKyoHDMEe2LYp7deoHc9Q" name="r" outgoing="_IR44gHDfEe2LYp7deoHc9Q _DwtRQHFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+        <attributes xmi:id="_QiP10HGHEe2Cc5-1vX4_jQ" value="cc">
+          <type href="http://kaitenzushi.v1#//Restaurant/current_clients"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_GlKyoXDMEe2LYp7deoHc9Q" name="b" incoming="_IsoTwHDfEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box"/>
+        <attributes xmi:id="_JpLO0HDPEe2LYp7deoHc9Q" value="true">
+          <type href="http://kaitenzushi.v1#//Box/free"/>
+        </attributes>
+        <attributes xmi:id="_JL_bIHGhEe2Cc5-1vX4_jQ" value="b_id">
+          <type href="http://kaitenzushi.v1#//Box/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_HT-ewHDfEe2LYp7deoHc9Q" name="cb" incoming="_IR44gHDfEe2LYp7deoHc9Q" outgoing="_IsoTwHDfEe2LYp7deoHc9Q _EKZjoHFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <nodes xmi:id="_Ci1I4HFsEe2Cc5-1vX4_jQ" name="kb" incoming="_DwtRQHFsEe2Cc5-1vX4_jQ _EKZjoHFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <edges xmi:id="_IR44gHDfEe2LYp7deoHc9Q" source="_GlKyoHDMEe2LYp7deoHc9Q" target="_HT-ewHDfEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+      <edges xmi:id="_IsoTwHDfEe2LYp7deoHc9Q" source="_HT-ewHDfEe2LYp7deoHc9Q" target="_GlKyoXDMEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+      <edges xmi:id="_DwtRQHFsEe2Cc5-1vX4_jQ" source="_GlKyoHDMEe2LYp7deoHc9Q" target="_Ci1I4HFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="_EKZjoHFsEe2Cc5-1vX4_jQ" source="_HT-ewHDfEe2LYp7deoHc9Q" target="_Ci1I4HFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_-XxE8XHfEe2Cc5-1vX4_jQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_-XxE8nHfEe2Cc5-1vX4_jQ">
+          <conclusion xmi:id="_-XxE83HfEe2Cc5-1vX4_jQ">
+            <nodes xmi:id="_-XxE9HHfEe2Cc5-1vX4_jQ" name="r" outgoing="_-XxE-XHfEe2Cc5-1vX4_jQ _-XxE_HHfEe2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//Restaurant"/>
+              <attributes xmi:id="_-XxE9XHfEe2Cc5-1vX4_jQ" value="cc">
+                <type href="http://kaitenzushi.v1#//Restaurant/current_clients"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_-XxE93HfEe2Cc5-1vX4_jQ" name="cb" incoming="_-XxE-XHfEe2Cc5-1vX4_jQ" outgoing="_-XxFAXHfEe2Cc5-1vX4_jQ _-XxFBXHfEe2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+            </nodes>
+            <nodes xmi:id="_-XxE-nHfEe2Cc5-1vX4_jQ" name="kb" incoming="_-XxE_HHfEe2Cc5-1vX4_jQ _-XxFBXHfEe2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//Box"/>
+            </nodes>
+            <nodes xmi:id="_-XxE_XHfEe2Cc5-1vX4_jQ" name="b" incoming="_-XxFAXHfEe2Cc5-1vX4_jQ _dhf1gHG-Ee2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//Box"/>
+              <attributes xmi:id="_-XxE_nHfEe2Cc5-1vX4_jQ" value="true">
+                <type href="http://kaitenzushi.v1#//Box/free"/>
+              </attributes>
+              <attributes xmi:id="_-XxE_3HfEe2Cc5-1vX4_jQ" value="b_id">
+                <type href="http://kaitenzushi.v1#//Box/id"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_b152YHG-Ee2Cc5-1vX4_jQ" name="c2" outgoing="_dhf1gHG-Ee2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//Client"/>
+            </nodes>
+            <edges xmi:id="_-XxE-XHfEe2Cc5-1vX4_jQ" source="_-XxE9HHfEe2Cc5-1vX4_jQ" target="_-XxE93HfEe2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+            </edges>
+            <edges xmi:id="_-XxE_HHfEe2Cc5-1vX4_jQ" source="_-XxE9HHfEe2Cc5-1vX4_jQ" target="_-XxE-nHfEe2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+            </edges>
+            <edges xmi:id="_-XxFAXHfEe2Cc5-1vX4_jQ" source="_-XxE93HfEe2Cc5-1vX4_jQ" target="_-XxE_XHfEe2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+            </edges>
+            <edges xmi:id="_-XxFBXHfEe2Cc5-1vX4_jQ" source="_-XxE93HfEe2Cc5-1vX4_jQ" target="_-XxE-nHfEe2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+            </edges>
+            <edges xmi:id="_dhf1gHG-Ee2Cc5-1vX4_jQ" source="_b152YHG-Ee2Cc5-1vX4_jQ" target="_-XxE_XHfEe2Cc5-1vX4_jQ">
+              <type href="http://kaitenzushi.v1#//Client/location"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_-XxE9nHfEe2Cc5-1vX4_jQ" origin="_GlKyoHDMEe2LYp7deoHc9Q" image="_-XxE9HHfEe2Cc5-1vX4_jQ"/>
+          <mappings xmi:id="_-XxE-HHfEe2Cc5-1vX4_jQ" origin="_HT-ewHDfEe2LYp7deoHc9Q" image="_-XxE93HfEe2Cc5-1vX4_jQ"/>
+          <mappings xmi:id="_-XxE-3HfEe2Cc5-1vX4_jQ" origin="_Ci1I4HFsEe2Cc5-1vX4_jQ" image="_-XxE-nHfEe2Cc5-1vX4_jQ"/>
+          <mappings xmi:id="_-XxFAHHfEe2Cc5-1vX4_jQ" origin="_GlKyoXDMEe2LYp7deoHc9Q" image="_-XxE_XHfEe2Cc5-1vX4_jQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_BklDEXDLEe2LYp7deoHc9Q" name="Rhs">
+      <nodes xmi:id="_JMCHMHDMEe2LYp7deoHc9Q" name="r" outgoing="_7Oc8kHDMEe2LYp7deoHc9Q _QKYZInFrEe2Cc5-1vX4_jQ _DwtRQXFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+        <attributes xmi:id="_QiQc4HGHEe2Cc5-1vX4_jQ" value="cc + 1">
+          <type href="http://kaitenzushi.v1#//Restaurant/current_clients"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_KSOTMHDMEe2LYp7deoHc9Q" name="b" incoming="_hLEL0HDPEe2LYp7deoHc9Q _QKYZI3FrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+        <attributes xmi:id="_JpNEAHDPEe2LYp7deoHc9Q" value="false">
+          <type href="http://kaitenzushi.v1#//Box/free"/>
+        </attributes>
+        <attributes xmi:id="_JMACMHGhEe2Cc5-1vX4_jQ" value="b_id">
+          <type href="http://kaitenzushi.v1#//Box/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_a4McYHDLEe2LYp7deoHc9Q" name="c" incoming="_7Oc8kHDMEe2LYp7deoHc9Q" outgoing="_hLEL0HDPEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Client"/>
+        <attributes xmi:id="_ehRr0HDfEe2LYp7deoHc9Q" value="0">
+          <type href="http://kaitenzushi.v1#//Client/food_count"/>
+        </attributes>
+        <attributes xmi:id="_kmsbkHGHEe2Cc5-1vX4_jQ" value="b_id">
+          <type href="http://kaitenzushi.v1#//Client/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_QKYZIHFrEe2Cc5-1vX4_jQ" name="cb" incoming="_QKYZInFrEe2Cc5-1vX4_jQ" outgoing="_QKYZI3FrEe2Cc5-1vX4_jQ _EKZjoXFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <nodes xmi:id="_Ci1I4XFsEe2Cc5-1vX4_jQ" name="kb" incoming="_DwtRQXFsEe2Cc5-1vX4_jQ _EKZjoXFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <edges xmi:id="_7Oc8kHDMEe2LYp7deoHc9Q" source="_JMCHMHDMEe2LYp7deoHc9Q" target="_a4McYHDLEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/clients"/>
+      </edges>
+      <edges xmi:id="_hLEL0HDPEe2LYp7deoHc9Q" source="_a4McYHDLEe2LYp7deoHc9Q" target="_KSOTMHDMEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Client/location"/>
+      </edges>
+      <edges xmi:id="_QKYZInFrEe2Cc5-1vX4_jQ" source="_JMCHMHDMEe2LYp7deoHc9Q" target="_QKYZIHFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+      <edges xmi:id="_QKYZI3FrEe2Cc5-1vX4_jQ" source="_QKYZIHFrEe2Cc5-1vX4_jQ" target="_KSOTMHDMEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+      <edges xmi:id="_DwtRQXFsEe2Cc5-1vX4_jQ" source="_JMCHMHDMEe2LYp7deoHc9Q" target="_Ci1I4XFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="_EKZjoXFsEe2Cc5-1vX4_jQ" source="_QKYZIHFrEe2Cc5-1vX4_jQ" target="_Ci1I4XFsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_JMCHMXDMEe2LYp7deoHc9Q" origin="_GlKyoHDMEe2LYp7deoHc9Q" image="_JMCHMHDMEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_KSOTMXDMEe2LYp7deoHc9Q" origin="_GlKyoXDMEe2LYp7deoHc9Q" image="_KSOTMHDMEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_QKYZIXFrEe2Cc5-1vX4_jQ" origin="_HT-ewHDfEe2LYp7deoHc9Q" image="_QKYZIHFrEe2Cc5-1vX4_jQ"/>
+    <mappings xmi:id="_Ci1I4nFsEe2Cc5-1vX4_jQ" origin="_Ci1I4HFsEe2Cc5-1vX4_jQ" image="_Ci1I4XFsEe2Cc5-1vX4_jQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_KUN6cHDQEe2LYp7deoHc9Q" name="RotateDishes">
+    <lhs xmi:id="_KUSy8HDQEe2LYp7deoHc9Q" name="Lhs">
+      <nodes xmi:id="_7_eFoHDTEe2LYp7deoHc9Q" name="s" incoming="_4zdtkHDcEe2LYp7deoHc9Q" outgoing="_4z9SQHDbEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+      </nodes>
+      <nodes xmi:id="_SXdbUHDUEe2LYp7deoHc9Q" name="b1" incoming="_4z9SQHDbEe2LYp7deoHc9Q _rPu8cHDUEe2LYp7deoHc9Q" outgoing="_4zdtkHDcEe2LYp7deoHc9Q _eAKj0HDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_W13gUHDUEe2LYp7deoHc9Q" name="b2" incoming="_eAKj0HDUEe2LYp7deoHc9Q" outgoing="_rPu8cHDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <edges xmi:id="_4z9SQHDbEe2LYp7deoHc9Q" source="_7_eFoHDTEe2LYp7deoHc9Q" target="_SXdbUHDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_4zdtkHDcEe2LYp7deoHc9Q" source="_SXdbUHDUEe2LYp7deoHc9Q" target="_7_eFoHDTEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+      <edges xmi:id="_eAKj0HDUEe2LYp7deoHc9Q" source="_SXdbUHDUEe2LYp7deoHc9Q" target="_W13gUHDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box/next"/>
+      </edges>
+      <edges xmi:id="_rPu8cHDUEe2LYp7deoHc9Q" source="_W13gUHDUEe2LYp7deoHc9Q" target="_SXdbUHDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box/prev"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_KUSy8XDQEe2LYp7deoHc9Q" name="Rhs">
+      <nodes xmi:id="_7_eFoXDTEe2LYp7deoHc9Q" name="s" incoming="_6UD9oHDcEe2LYp7deoHc9Q" outgoing="_ZYfOEHDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+      </nodes>
+      <nodes xmi:id="_YwahcHDUEe2LYp7deoHc9Q" name="b2" incoming="_ZYfOEHDUEe2LYp7deoHc9Q _Qr0SQHFrEe2Cc5-1vX4_jQ" outgoing="_6UD9oHDcEe2LYp7deoHc9Q _RJDn4HFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_qehh8HDUEe2LYp7deoHc9Q" name="b1" incoming="_RJDn4HFrEe2Cc5-1vX4_jQ" outgoing="_Qr0SQHFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <edges xmi:id="_ZYfOEHDUEe2LYp7deoHc9Q" source="_7_eFoXDTEe2LYp7deoHc9Q" target="_YwahcHDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_6UD9oHDcEe2LYp7deoHc9Q" source="_YwahcHDUEe2LYp7deoHc9Q" target="_7_eFoXDTEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+      <edges xmi:id="_Qr0SQHFrEe2Cc5-1vX4_jQ" source="_qehh8HDUEe2LYp7deoHc9Q" target="_YwahcHDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box/next"/>
+      </edges>
+      <edges xmi:id="_RJDn4HFrEe2Cc5-1vX4_jQ" source="_YwahcHDUEe2LYp7deoHc9Q" target="_qehh8HDUEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box/prev"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_7_eFonDTEe2LYp7deoHc9Q" origin="_7_eFoHDTEe2LYp7deoHc9Q" image="_7_eFoXDTEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_YwahcXDUEe2LYp7deoHc9Q" origin="_W13gUHDUEe2LYp7deoHc9Q" image="_YwahcHDUEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_qeiwEHDUEe2LYp7deoHc9Q" origin="_SXdbUHDUEe2LYp7deoHc9Q" image="_qehh8HDUEe2LYp7deoHc9Q"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_PGAmwHDWEe2LYp7deoHc9Q" name="EatDish">
+    <parameters xmi:id="_avSjsHGqEe2Cc5-1vX4_jQ" name="fc" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_avSjsXGqEe2Cc5-1vX4_jQ" name="sp" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_k432cHHkEe2Cc5-1vX4_jQ" name="price" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_PGB04HDWEe2LYp7deoHc9Q" name="Lhs">
+      <nodes xmi:id="_AA0rIHDoEe2LYp7deoHc9Q" name="kb" incoming="__lBZIHFZEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_11myIHDYEe2LYp7deoHc9Q" name="r" outgoing="__lBZIHFZEe2Cc5-1vX4_jQ __A8vAHGWEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+      </nodes>
+      <nodes xmi:id="_5v8NkHGEEe2Cc5-1vX4_jQ" name="cb" incoming="__A8vAHGWEe2Cc5-1vX4_jQ" outgoing="_KmIPUHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <nodes xmi:id="_HXVYEHHMEe2Cc5-1vX4_jQ" incoming="_KmIPUHHMEe2Cc5-1vX4_jQ _LHIDkHHMEe2Cc5-1vX4_jQ _MGOJEHHMEe2Cc5-1vX4_jQ" outgoing="_MTVYAHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_IT8KQHHMEe2Cc5-1vX4_jQ" outgoing="_LHIDkHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Client"/>
+        <attributes xmi:id="_aAAjYHHMEe2Cc5-1vX4_jQ" value="fc">
+          <type href="http://kaitenzushi.v1#//Client/food_count"/>
+        </attributes>
+        <attributes xmi:id="_fOTNMHHMEe2Cc5-1vX4_jQ" value="sp">
+          <type href="http://kaitenzushi.v1#//Client/spent"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_JUav0HHMEe2Cc5-1vX4_jQ" incoming="_MTVYAHHMEe2Cc5-1vX4_jQ" outgoing="_MGOJEHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+        <attributes xmi:id="_bNiGcHHMEe2Cc5-1vX4_jQ" value="price">
+          <type href="http://kaitenzushi.v1#//Sushi/price"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="__lBZIHFZEe2Cc5-1vX4_jQ" source="_11myIHDYEe2LYp7deoHc9Q" target="_AA0rIHDoEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="__A8vAHGWEe2Cc5-1vX4_jQ" source="_11myIHDYEe2LYp7deoHc9Q" target="_5v8NkHGEEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+      <edges xmi:id="_KmIPUHHMEe2Cc5-1vX4_jQ" source="_5v8NkHGEEe2Cc5-1vX4_jQ" target="_HXVYEHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+      <edges xmi:id="_LHIDkHHMEe2Cc5-1vX4_jQ" source="_IT8KQHHMEe2Cc5-1vX4_jQ" target="_HXVYEHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Client/location"/>
+      </edges>
+      <edges xmi:id="_MGOJEHHMEe2Cc5-1vX4_jQ" source="_JUav0HHMEe2Cc5-1vX4_jQ" target="_HXVYEHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_MTVYAHHMEe2Cc5-1vX4_jQ" source="_HXVYEHHMEe2Cc5-1vX4_jQ" target="_JUav0HHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_PGCb8HDWEe2LYp7deoHc9Q" name="Rhs">
+      <nodes xmi:id="_AA0rIXDoEe2LYp7deoHc9Q" name="kb" incoming="_-a2_YnGWEe2Cc5-1vX4_jQ _a4g84HHFEe2Cc5-1vX4_jQ _bC6PAHHFEe2Cc5-1vX4_jQ" outgoing="_bNMMYHHFEe2Cc5-1vX4_jQ _bqcJEHHFEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_-a2_YHGWEe2Cc5-1vX4_jQ" name="r" outgoing="_-a2_YnGWEe2Cc5-1vX4_jQ _wNT0MnGZEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+      </nodes>
+      <nodes xmi:id="_wNT0MHGZEe2Cc5-1vX4_jQ" name="cb" incoming="_wNT0MnGZEe2Cc5-1vX4_jQ" outgoing="_KmIPUXHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <nodes xmi:id="_XhsLAHHFEe2Cc5-1vX4_jQ" incoming="_bNMMYHHFEe2Cc5-1vX4_jQ" outgoing="_bC6PAHHFEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+        <attributes xmi:id="_Z5jaQHHFEe2Cc5-1vX4_jQ" value="RED">
+          <type href="http://kaitenzushi.v1#//Sushi/type"/>
+        </attributes>
+        <attributes xmi:id="_Yf-xsHHlEe2Cc5-1vX4_jQ" value="5">
+          <type href="http://kaitenzushi.v1#//Sushi/price"/>
+        </attributes>
+        <attributes xmi:id="_cuFw4HHlEe2Cc5-1vX4_jQ" value="0">
+          <type href="http://kaitenzushi.v1#//Sushi/laps"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_YZHiQHHFEe2Cc5-1vX4_jQ" incoming="_bqcJEHHFEe2Cc5-1vX4_jQ" outgoing="_a4g84HHFEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+        <attributes xmi:id="_ZHttoHHFEe2Cc5-1vX4_jQ" value="RED">
+          <type href="http://kaitenzushi.v1#//Sushi/type"/>
+        </attributes>
+        <attributes xmi:id="_Zm-2AHHlEe2Cc5-1vX4_jQ" value="5">
+          <type href="http://kaitenzushi.v1#//Sushi/price"/>
+        </attributes>
+        <attributes xmi:id="_dRmtoHHlEe2Cc5-1vX4_jQ" value="0">
+          <type href="http://kaitenzushi.v1#//Sushi/laps"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_HXV_IHHMEe2Cc5-1vX4_jQ" incoming="_KmIPUXHMEe2Cc5-1vX4_jQ _LHIDkXHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_IT8KQXHMEe2Cc5-1vX4_jQ" outgoing="_LHIDkXHMEe2Cc5-1vX4_jQ _LZlFgHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Client"/>
+        <attributes xmi:id="_aAAjYXHMEe2Cc5-1vX4_jQ" value="fc+1">
+          <type href="http://kaitenzushi.v1#//Client/food_count"/>
+        </attributes>
+        <attributes xmi:id="_fOT0QHHMEe2Cc5-1vX4_jQ" value="sp+price">
+          <type href="http://kaitenzushi.v1#//Client/spent"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_JUav0XHMEe2Cc5-1vX4_jQ" incoming="_LZlFgHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+        <attributes xmi:id="_bNiGcXHMEe2Cc5-1vX4_jQ" value="price">
+          <type href="http://kaitenzushi.v1#//Sushi/price"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_-a2_YnGWEe2Cc5-1vX4_jQ" source="_-a2_YHGWEe2Cc5-1vX4_jQ" target="_AA0rIXDoEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="_wNT0MnGZEe2Cc5-1vX4_jQ" source="_-a2_YHGWEe2Cc5-1vX4_jQ" target="_wNT0MHGZEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+      <edges xmi:id="_a4g84HHFEe2Cc5-1vX4_jQ" source="_YZHiQHHFEe2Cc5-1vX4_jQ" target="_AA0rIXDoEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_bC6PAHHFEe2Cc5-1vX4_jQ" source="_XhsLAHHFEe2Cc5-1vX4_jQ" target="_AA0rIXDoEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_bNMMYHHFEe2Cc5-1vX4_jQ" source="_AA0rIXDoEe2LYp7deoHc9Q" target="_XhsLAHHFEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+      <edges xmi:id="_bqcJEHHFEe2Cc5-1vX4_jQ" source="_AA0rIXDoEe2LYp7deoHc9Q" target="_YZHiQHHFEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+      <edges xmi:id="_KmIPUXHMEe2Cc5-1vX4_jQ" source="_wNT0MHGZEe2Cc5-1vX4_jQ" target="_HXV_IHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+      <edges xmi:id="_LHIDkXHMEe2Cc5-1vX4_jQ" source="_IT8KQXHMEe2Cc5-1vX4_jQ" target="_HXV_IHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Client/location"/>
+      </edges>
+      <edges xmi:id="_LZlFgHHMEe2Cc5-1vX4_jQ" source="_IT8KQXHMEe2Cc5-1vX4_jQ" target="_JUav0XHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Client/eaten"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_AA0rInDoEe2LYp7deoHc9Q" origin="_AA0rIHDoEe2LYp7deoHc9Q" image="_AA0rIXDoEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_-a2_YXGWEe2Cc5-1vX4_jQ" origin="_11myIHDYEe2LYp7deoHc9Q" image="_-a2_YHGWEe2Cc5-1vX4_jQ"/>
+    <mappings xmi:id="_wNT0MXGZEe2Cc5-1vX4_jQ" origin="_5v8NkHGEEe2Cc5-1vX4_jQ" image="_wNT0MHGZEe2Cc5-1vX4_jQ"/>
+    <mappings xmi:id="_HXV_IXHMEe2Cc5-1vX4_jQ" origin="_HXVYEHHMEe2Cc5-1vX4_jQ" image="_HXV_IHHMEe2Cc5-1vX4_jQ"/>
+    <mappings xmi:id="_IT8KQnHMEe2Cc5-1vX4_jQ" origin="_IT8KQHHMEe2Cc5-1vX4_jQ" image="_IT8KQXHMEe2Cc5-1vX4_jQ"/>
+    <mappings xmi:id="_JUav0nHMEe2Cc5-1vX4_jQ" origin="_JUav0HHMEe2Cc5-1vX4_jQ" image="_JUav0XHMEe2Cc5-1vX4_jQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_qq6l4HDZEe2LYp7deoHc9Q" name="CountLap">
+    <parameters xmi:id="_ExgdwHGqEe2Cc5-1vX4_jQ" name="lap" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_qq9pMHDZEe2LYp7deoHc9Q" name="Lhs">
+      <nodes xmi:id="_1kgloHDZEe2LYp7deoHc9Q" name="s" incoming="_TkAPgHDrEe2LYp7deoHc9Q" outgoing="_1yc_IHGWEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+        <attributes xmi:id="_6XqLkHDZEe2LYp7deoHc9Q" value="lap">
+          <type href="http://kaitenzushi.v1#//Sushi/laps"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_RzfE8HFrEe2Cc5-1vX4_jQ" name="r" outgoing="_SswecHDrEe2LYp7deoHc9Q _tAzcIHG-Ee2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+      </nodes>
+      <nodes xmi:id="_NOpfsHDaEe2LYp7deoHc9Q" name="kb" incoming="_SswecHDrEe2LYp7deoHc9Q _1yc_IHGWEe2Cc5-1vX4_jQ" outgoing="_TkAPgHDrEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_oRsBoHG-Ee2Cc5-1vX4_jQ" name="cb" incoming="_tAzcIHG-Ee2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <edges xmi:id="_SswecHDrEe2LYp7deoHc9Q" source="_RzfE8HFrEe2Cc5-1vX4_jQ" target="_NOpfsHDaEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="_TkAPgHDrEe2LYp7deoHc9Q" source="_NOpfsHDaEe2LYp7deoHc9Q" target="_1kgloHDZEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+      <edges xmi:id="_1yc_IHGWEe2Cc5-1vX4_jQ" source="_1kgloHDZEe2LYp7deoHc9Q" target="_NOpfsHDaEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_tAzcIHG-Ee2Cc5-1vX4_jQ" source="_RzfE8HFrEe2Cc5-1vX4_jQ" target="_oRsBoHG-Ee2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_qq9pMXDZEe2LYp7deoHc9Q" name="Rhs">
+      <nodes xmi:id="_1khMsHDZEe2LYp7deoHc9Q" name="s" incoming="_RzfE-HFrEe2Cc5-1vX4_jQ" outgoing="_1yc_IXGWEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+        <attributes xmi:id="_6XrZsHDZEe2LYp7deoHc9Q" value="lap+1">
+          <type href="http://kaitenzushi.v1#//Sushi/laps"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_RzfE8nFrEe2Cc5-1vX4_jQ" name="kb" incoming="_RzfE9nFrEe2Cc5-1vX4_jQ _1yc_IXGWEe2Cc5-1vX4_jQ" outgoing="_RzfE-HFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_RzfE9HFrEe2Cc5-1vX4_jQ" name="r" outgoing="_RzfE9nFrEe2Cc5-1vX4_jQ _tA0DMHG-Ee2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+      </nodes>
+      <nodes xmi:id="_oRsBoXG-Ee2Cc5-1vX4_jQ" name="cb" incoming="_tA0DMHG-Ee2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <edges xmi:id="_RzfE9nFrEe2Cc5-1vX4_jQ" source="_RzfE9HFrEe2Cc5-1vX4_jQ" target="_RzfE8nFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="_RzfE-HFrEe2Cc5-1vX4_jQ" source="_RzfE8nFrEe2Cc5-1vX4_jQ" target="_1khMsHDZEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+      <edges xmi:id="_1yc_IXGWEe2Cc5-1vX4_jQ" source="_1khMsHDZEe2LYp7deoHc9Q" target="_RzfE8nFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_tA0DMHG-Ee2Cc5-1vX4_jQ" source="_RzfE9HFrEe2Cc5-1vX4_jQ" target="_oRsBoXG-Ee2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1khMsXDZEe2LYp7deoHc9Q" origin="_1kgloHDZEe2LYp7deoHc9Q" image="_1khMsHDZEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_RzfE83FrEe2Cc5-1vX4_jQ" origin="_NOpfsHDaEe2LYp7deoHc9Q" image="_RzfE8nFrEe2Cc5-1vX4_jQ"/>
+    <mappings xmi:id="_RzfE9XFrEe2Cc5-1vX4_jQ" origin="_RzfE8HFrEe2Cc5-1vX4_jQ" image="_RzfE9HFrEe2Cc5-1vX4_jQ"/>
+    <mappings xmi:id="_oRsBonG-Ee2Cc5-1vX4_jQ" origin="_oRsBoHG-Ee2Cc5-1vX4_jQ" image="_oRsBoXG-Ee2Cc5-1vX4_jQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_INjH4HDbEe2LYp7deoHc9Q" name="RetireDish">
+    <parameters xmi:id="_C8JpMHGrEe2Cc5-1vX4_jQ" name="pf" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_NloSEHHnEe2Cc5-1vX4_jQ" name="laps" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_scVn4HHkEe2Cc5-1vX4_jQ" name="price" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_INkWAHDbEe2LYp7deoHc9Q" name="Lhs">
+      <nodes xmi:id="_S5epoHDcEe2LYp7deoHc9Q" name="b" incoming="_snuUAHDdEe2LYp7deoHc9Q _wzbQ0HHMEe2Cc5-1vX4_jQ" outgoing="_xtRC4HHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_lckKUHDcEe2LYp7deoHc9Q" name="r" outgoing="_snuUAHDdEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+        <attributes xmi:id="_m-0AMHDcEe2LYp7deoHc9Q" value="pf">
+          <type href="http://kaitenzushi.v1#//Restaurant/profit"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_iidsoHHMEe2Cc5-1vX4_jQ" incoming="_xtRC4HHMEe2Cc5-1vX4_jQ" outgoing="_wzbQ0HHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+        <attributes xmi:id="_jvoDUHHMEe2Cc5-1vX4_jQ" value="laps">
+          <type href="http://kaitenzushi.v1#//Sushi/laps"/>
+        </attributes>
+        <attributes xmi:id="_m-l5sHHMEe2Cc5-1vX4_jQ" value="price">
+          <type href="http://kaitenzushi.v1#//Sushi/price"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_snuUAHDdEe2LYp7deoHc9Q" source="_lckKUHDcEe2LYp7deoHc9Q" target="_S5epoHDcEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="_wzbQ0HHMEe2Cc5-1vX4_jQ" source="_iidsoHHMEe2Cc5-1vX4_jQ" target="_S5epoHDcEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_xtRC4HHMEe2Cc5-1vX4_jQ" source="_S5epoHDcEe2LYp7deoHc9Q" target="_iidsoHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_INkWAXDbEe2LYp7deoHc9Q" name="Rhs">
+      <nodes xmi:id="_S5epoXDcEe2LYp7deoHc9Q" name="b" incoming="_8j99wHFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_lckxYHDcEe2LYp7deoHc9Q" name="r" outgoing="_8j99wHFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+        <attributes xmi:id="_m-0AMXDcEe2LYp7deoHc9Q" value="pf-price">
+          <type href="http://kaitenzushi.v1#//Restaurant/profit"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_8j99wHFrEe2Cc5-1vX4_jQ" source="_lckxYHDcEe2LYp7deoHc9Q" target="_S5epoXDcEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_PjnhEHDcEe2LYp7deoHc9Q" name="laps >= 4" conditionText="laps>=4"/>
+    <mappings xmi:id="_S5eponDcEe2LYp7deoHc9Q" origin="_S5epoHDcEe2LYp7deoHc9Q" image="_S5epoXDcEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_lckxYXDcEe2LYp7deoHc9Q" origin="_lckKUHDcEe2LYp7deoHc9Q" image="_lckxYHDcEe2LYp7deoHc9Q"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_1K85UHDdEe2LYp7deoHc9Q" name="LeaveRestaurant">
+    <parameters xmi:id="_MMDjwHGqEe2Cc5-1vX4_jQ" name="cc" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_MMEK0HGqEe2Cc5-1vX4_jQ" name="sp" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_MMEK0XGqEe2Cc5-1vX4_jQ" name="pf" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_1K-ugHDdEe2LYp7deoHc9Q" name="Lhs">
+      <nodes xmi:id="_F1ZdYHDeEe2LYp7deoHc9Q" name="c" incoming="_8cIygHDeEe2LYp7deoHc9Q" outgoing="_Zlw0EHDfEe2LYp7deoHc9Q _f9K1EHFuEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Client"/>
+        <attributes xmi:id="_S3_3UHGqEe2Cc5-1vX4_jQ" value="sp">
+          <type href="http://kaitenzushi.v1#//Client/spent"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_HFIm8HDeEe2LYp7deoHc9Q" name="r" outgoing="_8cIygHDeEe2LYp7deoHc9Q _IufegHDrEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+        <attributes xmi:id="_qWnLwHGHEe2Cc5-1vX4_jQ" value="cc">
+          <type href="http://kaitenzushi.v1#//Restaurant/current_clients"/>
+        </attributes>
+        <attributes xmi:id="_Q1fPAHGUEe2Cc5-1vX4_jQ" value="pf">
+          <type href="http://kaitenzushi.v1#//Restaurant/profit"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__7gcYHDeEe2LYp7deoHc9Q" name="b" incoming="_Zlw0EHDfEe2LYp7deoHc9Q _UyZLsHDfEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box"/>
+        <attributes xmi:id="_W5_KUHDfEe2LYp7deoHc9Q" value="false">
+          <type href="http://kaitenzushi.v1#//Box/free"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_RI0c8HDfEe2LYp7deoHc9Q" name="cb" incoming="_IufegHDrEe2LYp7deoHc9Q" outgoing="_UyZLsHDfEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <nodes xmi:id="_fA1IoHFuEe2Cc5-1vX4_jQ" name="s" incoming="_f9K1EHFuEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+      </nodes>
+      <edges xmi:id="_8cIygHDeEe2LYp7deoHc9Q" source="_HFIm8HDeEe2LYp7deoHc9Q" target="_F1ZdYHDeEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/clients"/>
+      </edges>
+      <edges xmi:id="_Zlw0EHDfEe2LYp7deoHc9Q" source="_F1ZdYHDeEe2LYp7deoHc9Q" target="__7gcYHDeEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Client/location"/>
+      </edges>
+      <edges xmi:id="_IufegHDrEe2LYp7deoHc9Q" source="_HFIm8HDeEe2LYp7deoHc9Q" target="_RI0c8HDfEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+      <edges xmi:id="_UyZLsHDfEe2LYp7deoHc9Q" source="_RI0c8HDfEe2LYp7deoHc9Q" target="__7gcYHDeEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+      <edges xmi:id="_f9K1EHFuEe2Cc5-1vX4_jQ" source="_F1ZdYHDeEe2LYp7deoHc9Q" target="_fA1IoHFuEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Client/eaten"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_1K-ugXDdEe2LYp7deoHc9Q" name="Rhs">
+      <nodes xmi:id="_HFIm8XDeEe2LYp7deoHc9Q" name="r" outgoing="_UyksQnFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+        <attributes xmi:id="_qWny0HGHEe2Cc5-1vX4_jQ" value="cc-1">
+          <type href="http://kaitenzushi.v1#//Restaurant/current_clients"/>
+        </attributes>
+        <attributes xmi:id="_Q1fPAXGUEe2Cc5-1vX4_jQ" value="pf + sp">
+          <type href="http://kaitenzushi.v1#//Restaurant/profit"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__7hDcHDeEe2LYp7deoHc9Q" name="b" incoming="_UyksQ3FrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+        <attributes xmi:id="_W5_xYHDfEe2LYp7deoHc9Q" value="true">
+          <type href="http://kaitenzushi.v1#//Box/free"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_UyksQHFrEe2Cc5-1vX4_jQ" name="cb" incoming="_UyksQnFrEe2Cc5-1vX4_jQ" outgoing="_UyksQ3FrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <edges xmi:id="_UyksQnFrEe2Cc5-1vX4_jQ" source="_HFIm8XDeEe2LYp7deoHc9Q" target="_UyksQHFrEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+      <edges xmi:id="_UyksQ3FrEe2Cc5-1vX4_jQ" source="_UyksQHFrEe2Cc5-1vX4_jQ" target="__7hDcHDeEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_tP3Q0HGHEe2Cc5-1vX4_jQ" name="cc>0" conditionText="cc>0"/>
+    <attributeConditions xmi:id="_goZHEHGUEe2Cc5-1vX4_jQ" name="sp>0" conditionText="sp>0"/>
+    <mappings xmi:id="_HFIm8nDeEe2LYp7deoHc9Q" origin="_HFIm8HDeEe2LYp7deoHc9Q" image="_HFIm8XDeEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="__7hDcXDeEe2LYp7deoHc9Q" origin="__7gcYHDeEe2LYp7deoHc9Q" image="__7hDcHDeEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_UyksQXFrEe2Cc5-1vX4_jQ" origin="_RI0c8HDfEe2LYp7deoHc9Q" image="_UyksQHFrEe2Cc5-1vX4_jQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_htfIIHDqEe2LYp7deoHc9Q" name="AddBlueSushi">
+    <lhs xmi:id="_htg9UHDqEe2LYp7deoHc9Q" name="Lhs">
+      <nodes xmi:id="_nu3bwHDqEe2LYp7deoHc9Q" name="r" outgoing="_1vvVgHDqEe2LYp7deoHc9Q _fnPfMHGsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+      </nodes>
+      <nodes xmi:id="_05wIsHDqEe2LYp7deoHc9Q" name="kb" incoming="_1vvVgHDqEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_e554EHGsEe2Cc5-1vX4_jQ" name="cb" incoming="_fnPfMHGsEe2Cc5-1vX4_jQ" outgoing="_hmJb4HGsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <nodes xmi:id="_gfxpsHGsEe2Cc5-1vX4_jQ" name="b" incoming="_hmJb4HGsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <edges xmi:id="_1vvVgHDqEe2LYp7deoHc9Q" source="_nu3bwHDqEe2LYp7deoHc9Q" target="_05wIsHDqEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="_fnPfMHGsEe2Cc5-1vX4_jQ" source="_nu3bwHDqEe2LYp7deoHc9Q" target="_e554EHGsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+      <edges xmi:id="_hmJb4HGsEe2Cc5-1vX4_jQ" source="_e554EHGsEe2Cc5-1vX4_jQ" target="_gfxpsHGsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+      <formula xsi:type="henshin:And" xmi:id="_3zhD4HHWEe2Cc5-1vX4_jQ">
+        <left xsi:type="henshin:Not" xmi:id="_2_m6sXHWEe2Cc5-1vX4_jQ">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_2_m6snHWEe2Cc5-1vX4_jQ">
+            <conclusion xmi:id="_2_m6s3HWEe2Cc5-1vX4_jQ" name="1">
+              <nodes xmi:id="_2_m6tHHWEe2Cc5-1vX4_jQ" name="r" outgoing="_2_m6uHHWEe2Cc5-1vX4_jQ _2_m6u3HWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Restaurant"/>
+              </nodes>
+              <nodes xmi:id="_2_m6tnHWEe2Cc5-1vX4_jQ" name="kb" incoming="_2_m6uHHWEe2Cc5-1vX4_jQ _0J5R0HHWEe2Cc5-1vX4_jQ" outgoing="_0VnZoHHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Box"/>
+              </nodes>
+              <nodes xmi:id="_2_m6uXHWEe2Cc5-1vX4_jQ" name="cb" incoming="_2_m6u3HWEe2Cc5-1vX4_jQ" outgoing="_2_m6wnHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+              </nodes>
+              <nodes xmi:id="_zEGucHHWEe2Cc5-1vX4_jQ" name="s3" incoming="_0VnZoHHWEe2Cc5-1vX4_jQ" outgoing="_0J5R0HHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Sushi"/>
+                <attributes xmi:id="_TSt5EHHZEe2Cc5-1vX4_jQ" value="BLUE">
+                  <type href="http://kaitenzushi.v1#//Sushi/type"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_2_m6wHHWEe2Cc5-1vX4_jQ" name="b" incoming="_2_m6wnHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Box"/>
+              </nodes>
+              <edges xmi:id="_2_m6uHHWEe2Cc5-1vX4_jQ" source="_2_m6tHHWEe2Cc5-1vX4_jQ" target="_2_m6tnHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+              </edges>
+              <edges xmi:id="_2_m6u3HWEe2Cc5-1vX4_jQ" source="_2_m6tHHWEe2Cc5-1vX4_jQ" target="_2_m6uXHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+              </edges>
+              <edges xmi:id="_2_m6wnHWEe2Cc5-1vX4_jQ" source="_2_m6uXHWEe2Cc5-1vX4_jQ" target="_2_m6wHHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+              </edges>
+              <edges xmi:id="_0VnZoHHWEe2Cc5-1vX4_jQ" source="_2_m6tnHWEe2Cc5-1vX4_jQ" target="_zEGucHHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Box/food"/>
+              </edges>
+              <edges xmi:id="_0J5R0HHWEe2Cc5-1vX4_jQ" source="_zEGucHHWEe2Cc5-1vX4_jQ" target="_2_m6tnHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Sushi/location"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_2_m6tXHWEe2Cc5-1vX4_jQ" origin="_nu3bwHDqEe2LYp7deoHc9Q" image="_2_m6tHHWEe2Cc5-1vX4_jQ"/>
+            <mappings xmi:id="_2_m6t3HWEe2Cc5-1vX4_jQ" origin="_05wIsHDqEe2LYp7deoHc9Q" image="_2_m6tnHWEe2Cc5-1vX4_jQ"/>
+            <mappings xmi:id="_2_m6unHWEe2Cc5-1vX4_jQ" origin="_e554EHGsEe2Cc5-1vX4_jQ" image="_2_m6uXHWEe2Cc5-1vX4_jQ"/>
+            <mappings xmi:id="_2_m6wXHWEe2Cc5-1vX4_jQ" origin="_gfxpsHGsEe2Cc5-1vX4_jQ" image="_2_m6wHHWEe2Cc5-1vX4_jQ"/>
+          </child>
+        </left>
+        <right xsi:type="henshin:Not" xmi:id="_3zhD4XHWEe2Cc5-1vX4_jQ">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_3zhD4nHWEe2Cc5-1vX4_jQ">
+            <conclusion xmi:id="_3zhD43HWEe2Cc5-1vX4_jQ" name="2">
+              <nodes xmi:id="_3zhD5HHWEe2Cc5-1vX4_jQ" name="r" outgoing="_3zhD6HHWEe2Cc5-1vX4_jQ _3zhD63HWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Restaurant"/>
+              </nodes>
+              <nodes xmi:id="_3zhD5nHWEe2Cc5-1vX4_jQ" name="kb" incoming="_3zhD6HHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Box"/>
+              </nodes>
+              <nodes xmi:id="_3zhD6XHWEe2Cc5-1vX4_jQ" name="cb" incoming="_3zhD63HWEe2Cc5-1vX4_jQ" outgoing="_3zhD7nHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+              </nodes>
+              <nodes xmi:id="_3zhD7HHWEe2Cc5-1vX4_jQ" name="b" incoming="_3zhD7nHWEe2Cc5-1vX4_jQ _Y8wLEHHWEe2Cc5-1vX4_jQ" outgoing="_YnHSQHHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Box"/>
+              </nodes>
+              <nodes xmi:id="_eqkCcHHWEe2Cc5-1vX4_jQ" name="s2" incoming="_YnHSQHHWEe2Cc5-1vX4_jQ" outgoing="_Y8wLEHHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Sushi"/>
+                <attributes xmi:id="_eqkCcXHWEe2Cc5-1vX4_jQ" value="BLUE">
+                  <type href="http://kaitenzushi.v1#//Sushi/type"/>
+                </attributes>
+              </nodes>
+              <edges xmi:id="_3zhD6HHWEe2Cc5-1vX4_jQ" source="_3zhD5HHWEe2Cc5-1vX4_jQ" target="_3zhD5nHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+              </edges>
+              <edges xmi:id="_3zhD63HWEe2Cc5-1vX4_jQ" source="_3zhD5HHWEe2Cc5-1vX4_jQ" target="_3zhD6XHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+              </edges>
+              <edges xmi:id="_3zhD7nHWEe2Cc5-1vX4_jQ" source="_3zhD6XHWEe2Cc5-1vX4_jQ" target="_3zhD7HHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+              </edges>
+              <edges xmi:id="_YnHSQHHWEe2Cc5-1vX4_jQ" source="_3zhD7HHWEe2Cc5-1vX4_jQ" target="_eqkCcHHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Box/food"/>
+              </edges>
+              <edges xmi:id="_Y8wLEHHWEe2Cc5-1vX4_jQ" source="_eqkCcHHWEe2Cc5-1vX4_jQ" target="_3zhD7HHWEe2Cc5-1vX4_jQ">
+                <type href="http://kaitenzushi.v1#//Sushi/location"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_3zhD5XHWEe2Cc5-1vX4_jQ" origin="_nu3bwHDqEe2LYp7deoHc9Q" image="_3zhD5HHWEe2Cc5-1vX4_jQ"/>
+            <mappings xmi:id="_3zhD53HWEe2Cc5-1vX4_jQ" origin="_05wIsHDqEe2LYp7deoHc9Q" image="_3zhD5nHWEe2Cc5-1vX4_jQ"/>
+            <mappings xmi:id="_3zhD6nHWEe2Cc5-1vX4_jQ" origin="_e554EHGsEe2Cc5-1vX4_jQ" image="_3zhD6XHWEe2Cc5-1vX4_jQ"/>
+            <mappings xmi:id="_3zhD7XHWEe2Cc5-1vX4_jQ" origin="_gfxpsHGsEe2Cc5-1vX4_jQ" image="_3zhD7HHWEe2Cc5-1vX4_jQ"/>
+          </child>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_htg9UXDqEe2LYp7deoHc9Q" name="Rhs">
+      <nodes xmi:id="_nu3bwXDqEe2LYp7deoHc9Q" name="r" outgoing="_7-MXMHFrEe2Cc5-1vX4_jQ _fnPfMXGsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant"/>
+      </nodes>
+      <nodes xmi:id="__MwCgHDqEe2LYp7deoHc9Q" name="kb" incoming="_7-MXMHFrEe2Cc5-1vX4_jQ _G3XpIHHNEe2Cc5-1vX4_jQ" outgoing="_GlgdEHHNEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <nodes xmi:id="_e554EXGsEe2Cc5-1vX4_jQ" name="cb" incoming="_fnPfMXGsEe2Cc5-1vX4_jQ" outgoing="_eqkCdXHWEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt"/>
+      </nodes>
+      <nodes xmi:id="_-B6rYHHMEe2Cc5-1vX4_jQ" name="s1" incoming="_GlgdEHHNEe2Cc5-1vX4_jQ" outgoing="_G3XpIHHNEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Sushi"/>
+        <attributes xmi:id="__2qmgHHMEe2Cc5-1vX4_jQ" value="0">
+          <type href="http://kaitenzushi.v1#//Sushi/laps"/>
+        </attributes>
+        <attributes xmi:id="_ALXEIHHNEe2Cc5-1vX4_jQ" value="BLUE">
+          <type href="http://kaitenzushi.v1#//Sushi/type"/>
+        </attributes>
+        <attributes xmi:id="_bteBYHHlEe2Cc5-1vX4_jQ" value="10">
+          <type href="http://kaitenzushi.v1#//Sushi/price"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_eqkCc3HWEe2Cc5-1vX4_jQ" name="b" incoming="_eqkCdXHWEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box"/>
+      </nodes>
+      <edges xmi:id="_7-MXMHFrEe2Cc5-1vX4_jQ" source="_nu3bwXDqEe2LYp7deoHc9Q" target="__MwCgHDqEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Restaurant/kitchen_box"/>
+      </edges>
+      <edges xmi:id="_fnPfMXGsEe2Cc5-1vX4_jQ" source="_nu3bwXDqEe2LYp7deoHc9Q" target="_e554EXGsEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Restaurant/conveyor"/>
+      </edges>
+      <edges xmi:id="_GlgdEHHNEe2Cc5-1vX4_jQ" source="__MwCgHDqEe2LYp7deoHc9Q" target="_-B6rYHHMEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//Box/food"/>
+      </edges>
+      <edges xmi:id="_G3XpIHHNEe2Cc5-1vX4_jQ" source="_-B6rYHHMEe2Cc5-1vX4_jQ" target="__MwCgHDqEe2LYp7deoHc9Q">
+        <type href="http://kaitenzushi.v1#//Sushi/location"/>
+      </edges>
+      <edges xmi:id="_eqkCdXHWEe2Cc5-1vX4_jQ" source="_e554EXGsEe2Cc5-1vX4_jQ" target="_eqkCc3HWEe2Cc5-1vX4_jQ">
+        <type href="http://kaitenzushi.v1#//ConveyorBelt/boxes"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_nu3bwnDqEe2LYp7deoHc9Q" origin="_nu3bwHDqEe2LYp7deoHc9Q" image="_nu3bwXDqEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="__MwCgXDqEe2LYp7deoHc9Q" origin="_05wIsHDqEe2LYp7deoHc9Q" image="__MwCgHDqEe2LYp7deoHc9Q"/>
+    <mappings xmi:id="_e554EnGsEe2Cc5-1vX4_jQ" origin="_e554EHGsEe2Cc5-1vX4_jQ" image="_e554EXGsEe2Cc5-1vX4_jQ"/>
+    <mappings xmi:id="_eqkCdHHWEe2Cc5-1vX4_jQ" origin="_gfxpsHGsEe2Cc5-1vX4_jQ" image="_eqkCc3HWEe2Cc5-1vX4_jQ"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_nzSwQHHQEe2Cc5-1vX4_jQ" name="AddClients" subUnit="_BkQ6AHDLEe2LYp7deoHc9Q"/>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_b5vnAHHeEe2Cc5-1vX4_jQ" name="AddFood" subUnit="_htfIIHDqEe2LYp7deoHc9Q"/>
+</henshin:Module>

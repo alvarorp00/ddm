@@ -1,0 +1,24 @@
+These models are provided:
+	- restaurant.model
+	- restaurant.xmi
+	- restaurant_many_laps.xmi
+	- restaurant_many_laps_2.xmi
+	- restaurant_no_food_eaten.xmi
+
+restaurant_transformed... have been generated through the following rules:
+
+restaurant.xmi --[AddClients]-> restaurant_transformed¹.xmi --[AddFood]-> restaurant_transformed².xmi
+--[RotateDishes]-> restaurant_transformed³.xmi --[EatDish]-> restaurant_transformed⁴.xmi
+--[LeaveRestaurant]-> restaurant_transformed⁵.xmi --[AddBlueSushi]-> restaurant_transformed⁶.xmi 
+
+Notice that AddFood tries to add blue dishes but only one will be added,
+similar with AddClients (until reaching maximum capacity, namely the number of free boxes in the conveyor)
+
+restaurant_many_laps contains two red dishes with 3 and 4 laps and we apply the transform rule
+--[RetireDish]-> restaurant_many_laps_transformed.xmi that has a profit of (-5) bcs of the red dish deleted (previously 0)
+
+restaurant_many_laps_2 contains one red dish with 3 laps so it can be transformed applying --[RetireDish]-\>
+check that restaurant_many_laps_2 --[CountLap]-> restaurant_many_laps_2_addlap (lap is increased by one and the
+output model now has 4 laps instead of 3).
+
+restaurant_no_food_eaten contains a client that has not eaten so it won't leave --[LeaveRestaurant]-\>
